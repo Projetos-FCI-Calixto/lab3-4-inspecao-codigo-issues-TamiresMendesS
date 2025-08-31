@@ -4,6 +4,8 @@ package br.calebe.ticketmachine.core;
  *
  * @author Calebe de Paula Bianchini
  */
+
+ //Tamires Mendes da Silva - RA: 10420266
 public class PapelMoeda {
 
     protected int valor;

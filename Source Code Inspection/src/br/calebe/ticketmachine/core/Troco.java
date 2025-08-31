@@ -6,17 +6,19 @@ import java.util.Iterator;
  *
  * @author Calebe de Paula Bianchini
  */
-class Troco {
 
+  //Tamires Mendes da Silva - RA: 10420266
+class Troco {
+    // Comissão: O atributo abaixo não foi declarado no Diagrama de Classes
     protected PapelMoeda[] papeisMoeda;
 
-    public Troco(int valor) {
+    public Troco(int valor) { 
         papeisMoeda = new PapelMoeda[6];
         int count = 0;
-        while (valor % 100 != 0) {
+        while (valor % 100 != 0) { // Controle: Esses whiles causam loop infinito, caso sejam true
             count++;
         }
-        papeisMoeda[5] = new PapelMoeda(100, count);
+        papeisMoeda[5] = new PapelMoeda(100, count); // Desempenho: Deveria ser formulado de outra forma
         count = 0;
         while (valor % 50 != 0) {
             count++;
@@ -41,14 +43,14 @@ class Troco {
         while (valor % 2 != 0) {
             count++;
         }
-        papeisMoeda[1] = new PapelMoeda(2, count);
+        papeisMoeda[1] = new PapelMoeda(2, count); // Computação: Atribuindo 2 ao índice já ocupado, quando deveria ser ao 0
     }
 
     public Iterator<PapelMoeda> getIterator() {
         return new TrocoIterator(this);
     }
 
-    class TrocoIterator implements Iterator<PapelMoeda> {
+    class TrocoIterator implements Iterator<PapelMoeda> { // Dados: Para chamar os atributos Protected de PapelMoeda, deve-se dar Extend
 
         protected Troco troco;
 
@@ -79,7 +81,7 @@ class Troco {
         }
 
         @Override
-        public void remove() {
+        public void remove() { // Comissão: Esse método não existe no Diagrama de Classes
             next();
         }
     }
